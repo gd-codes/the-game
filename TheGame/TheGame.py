@@ -125,7 +125,8 @@ def gameloop():
                 score += 1
 
         # Check for events
-        keys = pygame.key.get_pressed()                
+        keys = pygame.key.get_pressed()
+        mouse = pygame.mouse.get_pressed()
             # move man left/right when arrow keys are pressed
         if keys[pygame.K_LEFT] and man.x > man.vel:
             man.x -= man.vel
@@ -133,7 +134,7 @@ def gameloop():
             man.x += man.vel     
             # jump when spacebar is pressed
         if not man.jump :
-            if keys[pygame.K_SPACE]:
+            if keys[pygame.K_SPACE] or mouse[0]:
                 man.jump = True
         else:
             if man.jumpCount >= -10:
@@ -146,7 +147,7 @@ def gameloop():
                 man.jump = False
                 man.jumpCount = 10
             # stay in the current position if enter is pressed
-        if keys[pygame.K_RETURN] :
+        if keys[pygame.K_RETURN] or mouse[2] :
             man.y = man.y
             man.jump = False
 
@@ -163,10 +164,10 @@ def gameloop():
 if __name__  == '__main__' :
 
     print("\n\nGAME INSTRUCTIONS\nIn this game, the man must dodge bullets that are flying at him from\
-the right hand edge of the screen. Use the spacebar to jump over incoming bullets or jump down after \
-hovering, and the enter key to hover in the current position. You can also use the left and right arrow\
- keys to move left and right. The score is the number of bullets that succesfully pass across the screen\
- without hitting the man. If he is hit, the game ends.")
+the right hand edge of the screen. Use the spacebar or left click to jump over incoming bullets or jump\
+ down after hovering, and the enter key or right click to hover in the current position. You can also \
+use the left and right arrow keys to move left and right. The score is the number of bullets that \
+succesfully pass across the screen without hitting the man. If he is hit, the game ends.")
 
     gameloop()
 
