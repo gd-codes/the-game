@@ -101,6 +101,9 @@ def gameloop():
     man = Player(200, 410)
     bullets = []
     
+    update_screen()
+    pygame.time.delay(1500)
+    
     run = True
     
     while run:
