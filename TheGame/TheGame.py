@@ -88,6 +88,7 @@ def endgame() :
     global run
     run = False
     message('Game Over', scrwid/2 - 100, scrht/2, med)
+    message('Score : {}'.format(score), scrwid/2 - 90, scrht/2 + 30, med)
     pygame.display.update()
     pygame.time.delay(3500)
     pygame.quit()
